@@ -5,23 +5,50 @@ define([
   "backbone",
 
   // Plugins.
-  "plugins/backbone.layoutmanager"
+  //"plugins/backbone.layoutmanager"
+  "plugins/jquery.toObject",
+  "plugins/backbone.marionette"
+
 ],
 
 function($, _, Backbone) {
 
+  Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
+    // Marionette expects "templateId" to be the ID of a DOM element.
+    // But with RequireJS, templateId is actually the full text of the template.
+    var template = templateId;
+
+    // Make sure we have a template before trying to compile it
+    if (!template || template.length === 0){
+        var msg = "Could not find template: '" + templateId + "'";
+        var err = new Error(msg);
+        err.name = "NoTemplateError";
+        throw err;
+    }
+
+    return template;
+  }
+
   // Provide a global location to place configuration settings and module
   // creation.
-  var app = {
-    // The root path to run the application.
-    root: "/"
-  };
+  var app = new Backbone.Marionette.Application({
+    // The root path to run the application through.
+    root: "/",
+    someModule: {
+      views: {},
+      models: {}
+    }
+  });
+
+  app.addRegions({
+    mainRegion: '#main'
+  });
 
   // Localize or create a new JavaScript Template object.
-  var JST = window.JST = window.JST || {};
+  //var JST = window.JST = window.JST || {};
 
   // Configure LayoutManager with Backbone Boilerplate defaults.
-  Backbone.LayoutManager.configure({
+  /*Backbone.LayoutManager.configure({
     // Allow LayoutManager to augment Backbone.View.prototype.
     manage: true,
 
@@ -50,10 +77,10 @@ function($, _, Backbone) {
         });
       }
     }
-  });
+  });*/
 
   // Mix Backbone.Events, modules, and layout management into the app object.
-  return _.extend(app, {
+  /*return _.extend(app, {
     // Create a custom object with a nested Views object.
     module: function(additionalProps) {
       return _.extend({ Views: {} }, additionalProps);
@@ -90,6 +117,7 @@ function($, _, Backbone) {
       // Return the reference, for chainability.
       return layout;
     }
-  }, Backbone.Events);
+  }, Backbone.Events);*/
+  return app;
 
 });

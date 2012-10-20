@@ -13,7 +13,10 @@ require.config({
     // Libraries.
     jquery: "../assets/js/libs/jquery",
     lodash: "../assets/js/libs/lodash",
-    backbone: "../assets/js/libs/backbone"
+    backbone: "../assets/js/libs/backbone",
+
+    // Plugins Require
+    text: "../assets/js/libs/require/text"
   },
 
   shim: {
@@ -23,8 +26,12 @@ require.config({
       exports: "Backbone"
     },
 
+    "plugins/jquery.toObject": ["jquery", "plugins/form2js"],
+
     // Backbone.LayoutManager depends on Backbone.
-    "plugins/backbone.layoutmanager": ["backbone"]
+    "plugins/backbone.layoutmanager": ["backbone"],
+
+    "plugins/backbone.marionette": ["backbone"]
   }
 
 });
