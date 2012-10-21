@@ -13,12 +13,15 @@ function(app, template) {
     events: {
       "click #connect": 'connect'
     },
+    initialize : function(e){
+    },
     connect : function(e){
       e.preventDefault();
       console.log(e);
 
       DM.login(function(response)
       {
+        /*
           if (response.session)
           {
               // user successfully logged in
@@ -43,7 +46,8 @@ function(app, template) {
               console.log('et non');
               // user cancelled login
           }
-      });
+          */
+      }, {display:"mobile", scope: 'read manage_playlists'/*, redirect_uri:"/"*/});
     }
   });
 

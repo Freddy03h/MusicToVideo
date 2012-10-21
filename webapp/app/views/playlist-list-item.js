@@ -1,14 +1,14 @@
 define([
   // Application.
   "app",
-  "text!templates/playlist-video-item.html"
+  "text!templates/playlist-list.html"
 ],
 
 function(app, template) {
 
   return Backbone.Marionette.ItemView.extend({
     tagName: "div",
-    id:"playlist-item",
+    id:"playlist-list-item",
     template: template,
     events: {
     },

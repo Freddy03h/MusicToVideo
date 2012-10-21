@@ -1,0 +1,21 @@
+<h2>DailyMotion</h2>
+<% if(playlistDaily){ %>
+	<ul>
+	<% _.each(playlistDaily, function(playlist){ %>
+		<li><a href="playlist/daily/<%= playlist.id %>"><%= playlist.name %></a></li>
+	<% }); %>
+	</ul>
+<% }else{ %>
+	<p>No dailymotion playlist</p>
+<% } %>
+
+<h2>Local</h2>
+<% if(playlistLocal){ %>
+	<ul>
+	<% _.each(playlistLocal, function(playlist){ %>
+		<li><a href="playlist/local/<%= playlist.id %>"><%= playlist.id %></a></li>
+	<% }); %>
+	</ul>
+<% }else{ %>
+	<p>No local playlist</p>
+<% } %>

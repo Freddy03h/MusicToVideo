@@ -3,10 +3,29 @@ require([
   "app",
 
   // Main Router.
-  "router"
+  "router",
+
+  "models/playlist-collection"
 ],
 
-function(app, Router) {
+function(app, Router, PlaylistCollection) {
+
+  DM.getLoginStatus(function(response)
+  {
+      if (response.session)
+      {
+        console.log(response.session);
+        app.someModule.user = response.session;
+        // logged in and connected user, someone you know
+      }
+      else
+      {
+          console.log('not getLoginStatus');
+          // no user session available, someone you dont know
+      }
+  });
+
+  app.someModule.models.playLists = new PlaylistCollection();
 
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.
