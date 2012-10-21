@@ -41,13 +41,28 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
     },
 
     deezer: function(){
-      app.someModule.views.deezer = (app.someModule.views.deezer) ? app.someModule.views.deezer : new DeezerView();
-      app.mainRegion.show(app.someModule.views.deezer);
+      DZ.api('/user/7220196/playlists', function(response){
+        console.log(response.data);
+        app.someModule.models.deezerPlaylists = new Backbone.Collection(response.data);
+        console.log(app.someModule.models.deezerPlaylists);
+        //var data = JSON.stringify(response.tracks.data);
+        //document.getElementById('playlistDeezer').innerHTML=data;
+        app.someModule.views.deezer = (app.someModule.views.deezer) ? app.someModule.views.deezer : new DeezerView({collection: app.someModule.models.deezerPlaylists});
+        app.mainRegion.show(app.someModule.views.deezer);
+      });
+      
     },
 
     deezerPlaylist: function(id){
-      app.someModule.views.playlistDeezer = (app.someModule.views.playlistDeezer) ? app.someModule.views.playlistDeezer : new DeezerPlaylistView();
-      app.mainRegion.show(app.someModule.views.playlistDeezer);
+      console.log(id);
+      DZ.api('/playlist/'+id, function(response){
+        console.log(response.tracks.data);
+        app.someModule.models.deezerTracks = new Backbone.Collection(response.tracks.data);
+
+        app.someModule.views.playlistDeezer = (app.someModule.views.playlistDeezer) ? app.someModule.views.playlistDeezer : new DeezerPlaylistView({collection: app.someModule.models.deezerTracks});
+        app.mainRegion.show(app.someModule.views.playlistDeezer);
+      });
+      
     },
 
     local: function(){

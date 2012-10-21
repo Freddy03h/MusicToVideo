@@ -3,15 +3,18 @@ define([
   "app",
   "text!templates/deezer-playlist.html",
   "models/video-collection",
-  "models/playlist-model"
+  "models/playlist-model",
+  "views/deezer-track-item"
 ],
 
-function(app, template, VideoCollection, PlaylistModel) {
+function(app, template, VideoCollection, PlaylistModel, DzTrItemView) {
 
   return Backbone.Marionette.CompositeView.extend({
     tagName: "div",
     id:"deezer-playlist",
     template: template,
+    itemViewContainer: "#deezer-tracks",
+    itemView: DzTrItemView,
     events: {
       "submit #list-songs" : "transformToVideo"
     },
