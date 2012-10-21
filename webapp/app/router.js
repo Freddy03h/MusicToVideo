@@ -100,8 +100,8 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
     playlistLocal: function(id){
       console.log(id);
       console.log(app.someModule.models.playLists.get(id));
-      app.someModule.views.playlistShow = new PlaylistView({dailymotion: false, model : app.someModule.models.playLists.get(id), collection: app.someModule.models.playLists.get(id).videos});
-      app.mainRegion.show(app.someModule.views.playlistShow);
+      app.someModule.views['playlistShow'+id] = (app.someModule.views['playlistShow'+id]) ? app.someModule.views['playlistShow'+id] : new PlaylistView({dailymotion: false, id:id, model : app.someModule.models.playLists.get(id), collection: app.someModule.models.playLists.get(id).videos});
+      app.mainRegion.show(app.someModule.views['playlistShow'+id]);
     },
 
     playlistDaily: function(id){
@@ -110,12 +110,12 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
       console.log(playList);
       playList.videos = new VideoDailyCollection();
 
-      app.someModule.views.playlistDailyShow = new PlaylistDailyView({dailymotion: true, model : playList, collection: playList.videos});
-      app.mainRegion.show(app.someModule.views.playlistDailyShow);
+      app.someModule.views['playlistDailyShow'+id] = (app.someModule.views['playlistDailyShow'+id]) ? app.someModule.views['playlistDailyShow'+id] : new PlaylistDailyView({dailymotion: true,id:id, model : playList, collection: playList.videos});
+      app.mainRegion.show(app.someModule.views['playlistDailyShow'+id]);
 
       playList.videos.fetchDM( id, function(model){
         console.log(model);
-        app.someModule.views.playlistDailyShow.render();
+        app.someModule.views['playlistDailyShow'+id].render();
       });
     }
   });

@@ -20,7 +20,13 @@ html{
 }
 a{text-decoration: none;color:$bleu;}
 #main > div *{-webkit-margin-collapse: separate;}
-
+span.title{
+	max-width:250px;
+	display:inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 
 .overflowscrolling  {
 	#app{
