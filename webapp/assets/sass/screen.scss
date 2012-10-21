@@ -16,15 +16,227 @@ $default-border-radius: 6px;
 html{
 	font-family: 'Helvetica Neue' ,Helvetica , sans-serif;
 	background-color:#F4F4F4;
+	-webkit-text-size-adjust:none;
 }
 a{text-decoration: none;color:$bleu;}
+#main > div *{-webkit-margin-collapse: separate;}
 
-.bubble{
-	margin:10px;
-	height:40px;
-	@include border-radius();
-	font-size:16px;
+
+.overflowscrolling  {
+	#app{
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		z-index: 20;
+		width:100%;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+	#main{
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: absolute;
+		top: 50px;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		z-index: 30;
+	}
+	#main > * {
+		display: block;
+		left: 0;
+		top: 0;
+		width: 100%;
+		padding:0 10px;
+		overflow-y: hidden;
+		position: absolute;
+		z-index: 0;
+		min-height: 101%;
+		-webkit-perspective: 1000;
+		-webkit-backface-visibility: hidden;
+		display: -webkit-box;
+		display: box;
+		-webkit-box-orient: vertical;
+		box-orient: vertical;
+		-webkit-box-flex: 1;
+		box-flex: 1;
+		@include box-sizing(border-box);
+	}
 }
+
+.no-overflowscrolling  {
+	&, & #app{height:100%;}
+	#main{
+		position: relative;
+		padding-top: 50px;
+	}
+	#main > * {
+
+	}
+
+}
+
+.overflowscrolling.iphone-safari #app{
+	bottom: -60px;
+}
+
+/***************/
+	
+#main .slideleft.in, #main .slideleft.out{
+	-webkit-animation-duration: 250ms;
+}
+
+#main .slideleft.in {
+    -webkit-animation-name: slideLeftIn;
+}
+
+#main .slideleft.out {
+    -webkit-animation-name: slideLeftOut;
+}
+
+@-webkit-keyframes slideLeftIn {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+    } 
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slideLeftOut {
+    0% {
+    	-webkit-transform: translate3d(0, 0, 0);
+    } 
+    100% {
+    	-webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* Slide Right */
+
+#main .slideright.in, #main .slideright.out{
+	-webkit-animation-duration: 250ms;
+}
+
+#main .slideright.in {
+    -webkit-animation-name: slideRightIn;
+}
+
+#main .slideright.out {
+    -webkit-animation-name: slideRightOut;
+}
+
+@-webkit-keyframes slideRightIn {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+    } 
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slideRightOut {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+    } 
+    100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+}
+
+/* Disolve */
+#main .dissolve.in, #main .dissolve.out{
+	-webkit-animation-duration: 100ms;
+}
+
+#main .dissolve.in {
+    -webkit-animation-name: dissolveIn;
+}
+
+#main .dissolve.out {
+    -webkit-animation-name: dissolveOut;
+}
+
+@-webkit-keyframes dissolveIn {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes dissolveOut {
+    0% {
+        opacity: 1;
+    } 
+    100% {
+        opacity: 0;
+    }
+}
+
+#header{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 50px;
+	z-index: 50;
+	background-color: #FFF;
+	@include single-box-shadow(rgba(0,0,0,0.4), 0, 0, 15px, false, false);
+	a{
+		vertical-align:middle;
+		display:block;
+		position:absolute;
+		&.btn-back{
+			top:6px;
+			left:6px;
+		}
+		&.logo{
+			margin:0 auto;
+			position:static;
+		}
+		&.btn-dailymotion-petit{
+			right:6px;
+			top:0;
+		}
+	}
+}
+
+#main{
+	padding:0 10px;
+}
+
+#main > .current {
+	z-index: 40;
+}
+
+#main > :not(.current) {
+	display: none;
+}
+
+#main .in, #main .out {
+	-webkit-animation-duration: 250ms;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+#main .in {
+	z-index: 50;
+}
+#main .in:after {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#main .out {
+	z-index: 0 !important;
+}
+
 
 .picto-disque{
 	background-image: url("../img/picto_disque.png");
@@ -44,37 +256,126 @@ a{text-decoration: none;color:$bleu;}
     vertical-align: middle;
 }
 
+.picto-playlist{
+	background-image: url("../img/picto_playlist.png");
+    background-size: 35px 35px;
+    display: inline-block;
+    width:35px;
+    height:35px;
+    vertical-align: middle;
+}
+
+.mini-fleche{
+	background-image: url("../img/mini_fleche.png");
+    background-size: 14px 14px;
+    display: inline-block;
+    width:14px;
+    height:14px;
+    vertical-align: middle;
+}
+
+.logo{
+	background-image: url("../img/logo.png");
+    background-size: 118px 56px;
+    display: inline-block;
+    width:118px;
+    height:56px;
+    vertical-align: middle;
+}
+
+.btn-dailymotion-petit{
+	background-image: url("../img/btn_dailymotion_petit.png");
+    background-size: 51px 51px;
+    display: inline-block;
+    width:51px;
+    height:51px;
+    vertical-align: middle;
+}
+
+.btn-back{
+	background-image: url("../img/btn_back.png");
+    background-size: 35px 35px;
+    display: inline-block;
+    width:35px;
+    height:35px;
+    vertical-align: middle;
+}
+
+.bubble{
+	margin:10px 0;
+	height:40px;
+	@include border-radius();
+	font-size:16px;
+}
+
 .degradeOrange{
 	@include background(linear-gradient(right, $orangeClair, $orangeFonce));
 	color:white;
+	text-transform:uppercase;
 }
 
 .degradeOrange2{
 	@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
 	color:white;
+	text-transform:uppercase;
 }
 
 #home{
-	p{
+	p.start{
 		color:$bleu;
 		font-size:20px;
-		
+		margin:16px 0 8px;
+	}
+	p.end{
+		color:$bleu;
+		font-size:20px;
+		margin:8px 0 16px;
 	}
 	li{
 		@extend .degradeOrange;
 		@extend .bubble;
+		span.picto-disque{
+			position: relative;
+			top: -7px;
+			left: 7px;
+		}
+		span.title{
+			position: relative;
+			top: -5px;
+			left: 15px;
+		}
 		
 	}
+	#connect{
+		display:block;
+		width:100px;
+		margin:0 auto;
+	}
 }
-#playlist{
+#playlist, #playlist-daily{
 	h1{
 		@extend .degradeOrange;
 		@extend .bubble;
+		.picto-cliplist{
+			position:relative;
+			top: 2px;
+			left: 4px;
+		}
+		.title{
+			position:relative;
+			top: 3px;
+			left: 9px;
+		}
+	}
+	iframe{
+		vertical-align: middle;
 	}
 	.info-video{
 		color:$bleu;
 		display:inline-block;
+		height: 30px;
 		p{
+			margin-top:6px;
 			display:inline-block;
 		}
 	}
@@ -83,24 +384,155 @@ a{text-decoration: none;color:$bleu;}
 		@extend .degradeOrange2;
 		@extend .bubble;
 	}
+	#connect,#social{
+		.title{
+			display: block;
+			text-align:center;
+			position:relative;
+			top:12px;
+		}
+	}
+}
+#playlist-list{
+	h1{
+		@extend .degradeOrange;
+		@extend .bubble;
+		.picto-cliplist{
+			position:relative;
+			top: 2px;
+			left: 4px;
+		}
+		.title{
+			position:relative;
+			top: 3px;
+			left: 9px;
+		}
+	}
+	h2{
+		@extend .bubble;
+		@include background(linear-gradient(left, rgb(0,0,51), rgb(0,0,184)));
+		color:white;
+		text-transform:uppercase;
+		.title{
+			position:relative;
+			top: 11px;
+			left: 8px;
+		}
+	}
+	li{
+		@extend .bubble;
+		background-color:#FFFFFF;
+		color:$bleu;
+		position:relative;
+		.title{
+			position:relative;
+			left: 10px;
+			top: 11px;
+		}
+		.mini-fleche{
+			position:absolute;
+			right: 10px;
+			top: 12px;
+		}
+	}
 }
 #deezer, #local{
 	h1{
 		@extend .degradeOrange;
 		@extend .bubble;
+		.picto-playlist{
+			position:relative;
+			top: 2px;
+			left: 4px;
+		}
+		.title{
+			position:relative;
+			top: 3px;
+			left: 9px;
+		}
 	}
 	li{
 		@extend .bubble;
 		background-color:#FFFFFF;
+		color:$bleu;
+		position:relative;
+		.title{
+			position:relative;
+			left: 10px;
+			top: 11px;
+		}
+		.mini-fleche{
+			position:absolute;
+			right: 10px;
+			top: 12px;
+		}
 	}
 }
 #deezer-playlist, #local-playlist{
 	h1{
 		@extend .degradeOrange;
 		@extend .bubble;
+		.picto-playlist{
+			position:relative;
+			top: 2px;
+			left: 4px;
+		}
+		.title{
+			position:relative;
+			top: 3px;
+			left: 9px;
+		}
 	}
 	li{
 		@extend .bubble;
 		background-color:#FFFFFF;
+		color:$bleu;
+		position: relative;
+		.title{
+			position:relative;
+			left: 10px;
+			top: 11px;
+		}
+		input[type=checkbox]{
+			position:absolute;
+			right: 10px;
+			top: 12px;
+		}
+	}
+	#list-songs input[type=submit]{
+		-webkit-appearance: none;
+		border:none;
+		display:block;
+		width:100%;
+		margin-bottom: 20px;
+		@include box-sizing(border-box);
+		@extend .degradeOrange;
+		@extend .bubble;
+	}
+	#deezer-tracks{
+		border-bottom:dashed #C3C3C3 1px;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+	}
+}
+
+.tab-bar{
+	margin:10px 0;
+	a{
+		display: inline-block;
+		width:45%;
+		margin:0 2%;
+		@extend .degradeOrange;
+		@extend .bubble;
+		.picto-cliplist, .picto-playlist{
+			position:relative;
+			top: 2px;
+			left: 4px;
+		}
+		.title{
+			position:relative;
+			top: 3px;
+			left: 9px;
+		}
 	}
 }

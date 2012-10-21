@@ -71,27 +71,278 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html {
   font-family: 'Helvetica Neue' ,Helvetica , sans-serif;
   background-color: #F4F4F4;
+  -webkit-text-size-adjust: none;
 }
 
-/* line 20, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 a {
   text-decoration: none;
   color: #2b2b67;
 }
 
 /* line 22, ../sass/screen.scss */
-.bubble, #home li, #playlist h1, #playlist a, #deezer h1, #local h1, #deezer li, #local li, #deezer-playlist h1, #local-playlist h1, #deezer-playlist li, #local-playlist li {
-  margin: 10px;
-  height: 40px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  font-size: 16px;
+#main > div * {
+  -webkit-margin-collapse: separate;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
+.overflowscrolling #app {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 37, ../sass/screen.scss */
+.overflowscrolling #main {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 30;
+}
+/* line 47, ../sass/screen.scss */
+.overflowscrolling #main > * {
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 10px;
+  overflow-y: hidden;
+  position: absolute;
+  z-index: 0;
+  min-height: 101%;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 70, ../sass/screen.scss */
+.no-overflowscrolling, .no-overflowscrolling #app {
+  height: 100%;
+}
+/* line 71, ../sass/screen.scss */
+.no-overflowscrolling #main {
+  position: relative;
+  padding-top: 50px;
+}
+
+/* line 81, ../sass/screen.scss */
+.overflowscrolling.iphone-safari #app {
+  bottom: -60px;
+}
+
+/***************/
+/* line 87, ../sass/screen.scss */
+#main .slideleft.in, #main .slideleft.out {
+  -webkit-animation-duration: 250ms;
+}
+
+/* line 91, ../sass/screen.scss */
+#main .slideleft.in {
+  -webkit-animation-name: slideLeftIn;
+}
+
+/* line 95, ../sass/screen.scss */
+#main .slideleft.out {
+  -webkit-animation-name: slideLeftOut;
+}
+
+@-webkit-keyframes slideLeftIn {
+  /* line 100, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+  }
+
+  /* line 103, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideLeftOut {
+  /* line 109, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* line 112, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Slide Right */
+/* line 119, ../sass/screen.scss */
+#main .slideright.in, #main .slideright.out {
+  -webkit-animation-duration: 250ms;
+}
+
+/* line 123, ../sass/screen.scss */
+#main .slideright.in {
+  -webkit-animation-name: slideRightIn;
+}
+
+/* line 127, ../sass/screen.scss */
+#main .slideright.out {
+  -webkit-animation-name: slideRightOut;
+}
+
+@-webkit-keyframes slideRightIn {
+  /* line 132, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+  }
+
+  /* line 135, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideRightOut {
+  /* line 141, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* line 144, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+  }
+}
+
+/* Disolve */
+/* line 150, ../sass/screen.scss */
+#main .dissolve.in, #main .dissolve.out {
+  -webkit-animation-duration: 100ms;
+}
+
+/* line 154, ../sass/screen.scss */
+#main .dissolve.in {
+  -webkit-animation-name: dissolveIn;
+}
+
+/* line 158, ../sass/screen.scss */
+#main .dissolve.out {
+  -webkit-animation-name: dissolveOut;
+}
+
+@-webkit-keyframes dissolveIn {
+  /* line 163, ../sass/screen.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 166, ../sass/screen.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes dissolveOut {
+  /* line 172, ../sass/screen.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 175, ../sass/screen.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* line 180, ../sass/screen.scss */
+#header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  z-index: 50;
+  background-color: #FFF;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+/* line 189, ../sass/screen.scss */
+#header a {
+  vertical-align: middle;
+  display: block;
+  position: absolute;
+}
+/* line 193, ../sass/screen.scss */
+#header a.btn-back {
+  top: 6px;
+  left: 6px;
+}
+/* line 197, ../sass/screen.scss */
+#header a.logo {
+  margin: 0 auto;
+  position: static;
+}
+/* line 201, ../sass/screen.scss */
+#header a.btn-dailymotion-petit {
+  right: 6px;
+  top: 0;
+}
+
+/* line 208, ../sass/screen.scss */
+#main {
+  padding: 0 10px;
+}
+
+/* line 212, ../sass/screen.scss */
+#main > .current {
+  z-index: 40;
+}
+
+/* line 216, ../sass/screen.scss */
+#main > :not(.current) {
+  display: none;
+}
+
+/* line 220, ../sass/screen.scss */
+#main .in, #main .out {
+  -webkit-animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 226, ../sass/screen.scss */
+#main .in {
+  z-index: 50;
+}
+
+/* line 229, ../sass/screen.scss */
+#main .in:after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* line 236, ../sass/screen.scss */
+#main .out {
+  z-index: 0 !important;
+}
+
+/* line 241, ../sass/screen.scss */
 .picto-disque {
   background-image: url("../img/picto_disque.png");
   background-size: 56px 56px;
@@ -101,7 +352,7 @@ a {
   vertical-align: middle;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 250, ../sass/screen.scss */
 .picto-cliplist {
   background-image: url("../img/picto_cliplist.png");
   background-size: 35px 35px;
@@ -111,52 +362,305 @@ a {
   vertical-align: middle;
 }
 
-/* line 47, ../sass/screen.scss */
-.degradeOrange, #home li, #playlist h1, #deezer h1, #local h1, #deezer-playlist h1, #local-playlist h1 {
+/* line 259, ../sass/screen.scss */
+.picto-playlist {
+  background-image: url("../img/picto_playlist.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 268, ../sass/screen.scss */
+.mini-fleche {
+  background-image: url("../img/mini_fleche.png");
+  background-size: 14px 14px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+/* line 277, ../sass/screen.scss */
+.logo {
+  background-image: url("../img/logo.png");
+  background-size: 118px 56px;
+  display: inline-block;
+  width: 118px;
+  height: 56px;
+  vertical-align: middle;
+}
+
+/* line 286, ../sass/screen.scss */
+.btn-dailymotion-petit {
+  background-image: url("../img/btn_dailymotion_petit.png");
+  background-size: 51px 51px;
+  display: inline-block;
+  width: 51px;
+  height: 51px;
+  vertical-align: middle;
+}
+
+/* line 295, ../sass/screen.scss */
+.btn-back {
+  background-image: url("../img/btn_back.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 304, ../sass/screen.scss */
+.bubble, #home li, #playlist h1, #playlist-daily h1, #playlist a, #playlist-daily a, #playlist-list h1, #playlist-list h2, #playlist-list li, #deezer h1, #local h1, #deezer li, #local li, #deezer-playlist h1, #local-playlist h1, #deezer-playlist li, #local-playlist li, #deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit], .tab-bar a {
+  margin: 10px 0;
+  height: 40px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* line 311, ../sass/screen.scss */
+.degradeOrange, #home li, #playlist h1, #playlist-daily h1, #playlist-list h1, #deezer h1, #local h1, #deezer-playlist h1, #local-playlist h1, #deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit], .tab-bar a {
   background: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #ffbf00), color-stop(100%, #ff4f00));
   background: -webkit-linear-gradient(right, #ffbf00, #ff4f00);
   background: -moz-linear-gradient(right, #ffbf00, #ff4f00);
   background: -o-linear-gradient(right, #ffbf00, #ff4f00);
   background: linear-gradient(right, #ffbf00, #ff4f00);
   color: white;
+  text-transform: uppercase;
 }
 
-/* line 52, ../sass/screen.scss */
-.degradeOrange2, #playlist a {
+/* line 317, ../sass/screen.scss */
+.degradeOrange2, #playlist a, #playlist-daily a {
   background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffbc3e), color-stop(100%, #ff4c20));
   background: -webkit-linear-gradient(bottom, #ffbc3e, #ff4c20);
   background: -moz-linear-gradient(bottom, #ffbc3e, #ff4c20);
   background: -o-linear-gradient(bottom, #ffbc3e, #ff4c20);
   background: linear-gradient(bottom, #ffbc3e, #ff4c20);
   color: white;
+  text-transform: uppercase;
 }
 
-/* line 58, ../sass/screen.scss */
-#home p {
+/* line 324, ../sass/screen.scss */
+#home p.start {
   color: #2b2b67;
   font-size: 20px;
+  margin: 16px 0 8px;
+}
+/* line 329, ../sass/screen.scss */
+#home p.end {
+  color: #2b2b67;
+  font-size: 20px;
+  margin: 8px 0 16px;
+}
+/* line 337, ../sass/screen.scss */
+#home li span.picto-disque {
+  position: relative;
+  top: -7px;
+  left: 7px;
+}
+/* line 342, ../sass/screen.scss */
+#home li span.title {
+  position: relative;
+  top: -5px;
+  left: 15px;
+}
+/* line 349, ../sass/screen.scss */
+#home #connect {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
 }
 
-/* line 74, ../sass/screen.scss */
-#playlist .info-video {
+/* line 359, ../sass/screen.scss */
+#playlist h1 .picto-cliplist, #playlist-daily h1 .picto-cliplist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 364, ../sass/screen.scss */
+#playlist h1 .title, #playlist-daily h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 370, ../sass/screen.scss */
+#playlist iframe, #playlist-daily iframe {
+  vertical-align: middle;
+}
+/* line 373, ../sass/screen.scss */
+#playlist .info-video, #playlist-daily .info-video {
   color: #2b2b67;
   display: inline-block;
+  height: 30px;
 }
-/* line 77, ../sass/screen.scss */
-#playlist .info-video p {
+/* line 377, ../sass/screen.scss */
+#playlist .info-video p, #playlist-daily .info-video p {
+  margin-top: 6px;
   display: inline-block;
 }
-/* line 81, ../sass/screen.scss */
-#playlist a {
+/* line 382, ../sass/screen.scss */
+#playlist a, #playlist-daily a {
   display: block;
 }
-
-/* line 92, ../sass/screen.scss */
-#deezer li, #local li {
-  background-color: #FFFFFF;
+/* line 388, ../sass/screen.scss */
+#playlist #connect .title, #playlist #social .title, #playlist-daily #connect .title, #playlist-daily #social .title {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 12px;
 }
 
-/* line 102, ../sass/screen.scss */
+/* line 400, ../sass/screen.scss */
+#playlist-list h1 .picto-cliplist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 405, ../sass/screen.scss */
+#playlist-list h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 411, ../sass/screen.scss */
+#playlist-list h2 {
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #000033), color-stop(100%, #0000b8));
+  background: -webkit-linear-gradient(left, #000033, #0000b8);
+  background: -moz-linear-gradient(left, #000033, #0000b8);
+  background: -o-linear-gradient(left, #000033, #0000b8);
+  background: linear-gradient(left, #000033, #0000b8);
+  color: white;
+  text-transform: uppercase;
+}
+/* line 416, ../sass/screen.scss */
+#playlist-list h2 .title {
+  position: relative;
+  top: 11px;
+  left: 8px;
+}
+/* line 422, ../sass/screen.scss */
+#playlist-list li {
+  background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 427, ../sass/screen.scss */
+#playlist-list li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 432, ../sass/screen.scss */
+#playlist-list li .mini-fleche {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+/* line 443, ../sass/screen.scss */
+#deezer h1 .picto-playlist, #local h1 .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 448, ../sass/screen.scss */
+#deezer h1 .title, #local h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 454, ../sass/screen.scss */
+#deezer li, #local li {
+  background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 459, ../sass/screen.scss */
+#deezer li .title, #local li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 464, ../sass/screen.scss */
+#deezer li .mini-fleche, #local li .mini-fleche {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+/* line 475, ../sass/screen.scss */
+#deezer-playlist h1 .picto-playlist, #local-playlist h1 .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 480, ../sass/screen.scss */
+#deezer-playlist h1 .title, #local-playlist h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 486, ../sass/screen.scss */
 #deezer-playlist li, #local-playlist li {
   background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 491, ../sass/screen.scss */
+#deezer-playlist li .title, #local-playlist li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 496, ../sass/screen.scss */
+#deezer-playlist li input[type=checkbox], #local-playlist li input[type=checkbox] {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+/* line 502, ../sass/screen.scss */
+#deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit] {
+  -webkit-appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 512, ../sass/screen.scss */
+#deezer-playlist #deezer-tracks, #local-playlist #deezer-tracks {
+  border-bottom: dashed #C3C3C3 1px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 519, ../sass/screen.scss */
+.tab-bar {
+  margin: 10px 0;
+}
+/* line 521, ../sass/screen.scss */
+.tab-bar a {
+  display: inline-block;
+  width: 45%;
+  margin: 0 2%;
+}
+/* line 527, ../sass/screen.scss */
+.tab-bar a .picto-cliplist, .tab-bar a .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 532, ../sass/screen.scss */
+.tab-bar a .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
 }

@@ -14,6 +14,7 @@ require.config({
     jquery: "../assets/js/libs/jquery",
     lodash: "../assets/js/libs/lodash",
     backbone: "../assets/js/libs/backbone",
+    modernizr: "../assets/js/libs/modernizr",
 
     // Plugins Require
     text: "../assets/js/libs/require/text"
@@ -31,7 +32,9 @@ require.config({
     // Backbone.LayoutManager depends on Backbone.
     "plugins/backbone.layoutmanager": ["backbone"],
 
-    "plugins/backbone.marionette": ["backbone"]
+    "plugins/backbone.marionette": ["backbone"],
+
+    "plugins/backbone.marionette.transitionregion": ["plugins/backbone.marionette"]
   }
 
 });

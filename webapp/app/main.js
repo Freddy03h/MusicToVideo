@@ -5,10 +5,12 @@ require([
   // Main Router.
   "router",
 
+  "views/header",
+
   "models/playlist-collection"
 ],
 
-function(app, Router, PlaylistCollection) {
+function(app, Router, HeaderView, PlaylistCollection) {
 
   DM.getLoginStatus(function(response)
   {
@@ -27,6 +29,9 @@ function(app, Router, PlaylistCollection) {
 
   app.someModule.models.playLists = new PlaylistCollection();
 
+  app.someModule.views.header = new HeaderView();
+  app.headerRegion.show(app.someModule.views.header);
+
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.
   app.router = new Router();
@@ -43,6 +48,8 @@ function(app, Router, PlaylistCollection) {
     var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
     // Get the absolute root.
     var root = location.protocol + "//" + location.host + app.root;
+
+    app.mainRegion.animation = evt.currentTarget.getAttribute('data-animation') || 'dissolve';
 
     // Ensure the root is part of the anchor href, meaning it's relative.
     if (href.prop.slice(0, root.length) === root) {

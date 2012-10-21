@@ -3,15 +3,28 @@ define([
   "jquery",
   "lodash",
   "backbone",
+  "modernizr",
 
   // Plugins.
   //"plugins/backbone.layoutmanager"
   "plugins/jquery.toObject",
-  "plugins/backbone.marionette"
+  "plugins/backbone.marionette",
+  "plugins/backbone.marionette.transitionregion"
 
 ],
 
 function($, _, Backbone) {
+
+  var iphone = ( navigator.userAgent.match(/(iPhone|iPod)/i) ? true : false );
+  if(iphone){
+    var safari = ( navigator.userAgent.match(/(Safari)/i) ? true : false );
+    if(safari)
+      $('html').addClass('iphone-safari');
+  }
+
+  Modernizr.addTest("overflowscrolling",function(){
+      return Modernizr.testAllProps("overflowScrolling");
+  });
 
   Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
     // Marionette expects "templateId" to be the ID of a DOM element.
@@ -39,9 +52,10 @@ function($, _, Backbone) {
       models: {}
     }
   });
-
+  console.log(Backbone.Marionette.TransitionRegion);
   app.addRegions({
-    mainRegion: '#main'
+    mainRegion: Backbone.Marionette.TransitionRegion,
+    headerRegion: '#header'
   });
 
   // Localize or create a new JavaScript Template object.

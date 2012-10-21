@@ -49,6 +49,8 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
         //document.getElementById('playlistDeezer').innerHTML=data;
         app.someModule.views.deezer = (app.someModule.views.deezer) ? app.someModule.views.deezer : new DeezerView({collection: app.someModule.models.deezerPlaylists});
         app.mainRegion.show(app.someModule.views.deezer);
+
+        window.scrollTo(0, 0);
       });
       
     },
@@ -61,6 +63,8 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
 
         app.someModule.views.playlistDeezer = (app.someModule.views.playlistDeezer) ? app.someModule.views.playlistDeezer : new DeezerPlaylistView({collection: app.someModule.models.deezerTracks});
         app.mainRegion.show(app.someModule.views.playlistDeezer);
+
+        window.scrollTo(0, 0);
       });
       
     },
