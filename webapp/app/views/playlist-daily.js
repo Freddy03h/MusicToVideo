@@ -9,7 +9,7 @@ function(app, template, PlaylistItemView) {
 
   return Backbone.Marionette.CompositeView.extend({
     tagName: "div",
-    id:"playlist-daily",
+    className:"playlist-daily",
     template: template,
     itemViewContainer: "#video-list-daily",
     itemView: PlaylistItemView,

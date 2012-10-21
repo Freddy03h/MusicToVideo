@@ -11,7 +11,7 @@ function(app, template, VideoCollection, PlaylistModel, DzTrItemView) {
 
   return Backbone.Marionette.CompositeView.extend({
     tagName: "div",
-    id:"deezer-playlist",
+    className:"deezer-playlist",
     template: template,
     itemViewContainer: "#deezer-tracks",
     itemView: DzTrItemView,

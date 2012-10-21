@@ -2,7 +2,7 @@
 require.config({
 
   // Initialize the application with the main application file.
-  deps: ["main"],
+  deps: ["main-built"],
 
   paths: {
     // JavaScript folders.

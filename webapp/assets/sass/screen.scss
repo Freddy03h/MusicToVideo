@@ -358,7 +358,7 @@ span.title{
 		margin:0 auto;
 	}
 }
-#playlist, #playlist-daily{
+.playlist, .playlist-daily{
 	h1{
 		@extend .degradeOrange;
 		@extend .bubble;
@@ -474,7 +474,7 @@ span.title{
 		}
 	}
 }
-#deezer-playlist, #local-playlist{
+.deezer-playlist, #local-playlist{
 	h1{
 		@extend .degradeOrange;
 		@extend .bubble;

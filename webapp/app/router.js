@@ -61,8 +61,8 @@ function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylist
         console.log(response.tracks.data);
         app.someModule.models.deezerTracks = new Backbone.Collection(response.tracks.data);
 
-        app.someModule.views.playlistDeezer = (app.someModule.views.playlistDeezer) ? app.someModule.views.playlistDeezer : new DeezerPlaylistView({collection: app.someModule.models.deezerTracks});
-        app.mainRegion.show(app.someModule.views.playlistDeezer);
+        app.someModule.views['playlistDeezer'+id] = (app.someModule.views['playlistDeezer'+id]) ? app.someModule.views['playlistDeezer'+id] : new DeezerPlaylistView({id:id,collection: app.someModule.models.deezerTracks});
+        app.mainRegion.show(app.someModule.views['playlistDeezer'+id]);
 
         window.scrollTo(0, 0);
       });

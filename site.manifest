@@ -1,0 +1,21 @@
+CACHE MANIFEST
+ 
+# Version 0.5.0.1
+
+CACHE:
+assets/stylesheets/screen.css
+assets/js/libs/require.js
+app/config.js
+app/main-built.js
+assets/img/btn_dailymotion_gros.png
+assets/img/btn_back.png
+assets/img/logo.png
+assets/img/btn_dailymotion_petit.png
+assets/img/picto_disque.png
+assets/img/picto_playlist.png
+assets/img/picto_cliplist.png
+http://api.dmcdn.net/all.js
+http://cdn-files.deezer.com/js/min/dz.js
+
+NETWORK:
+*
