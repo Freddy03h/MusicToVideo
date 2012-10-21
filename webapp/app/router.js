@@ -2,7 +2,13 @@ define([
   // Application.
   "app",
   "views/home",
+
+  "views/deezer",
+  "views/deezer-playlist",
+  "views/local",
+  "views/local-playlist",
   "views/songs-list",
+
   "views/playlist-list",
   "views/playlist",
   "views/playlist-daily",
@@ -13,12 +19,16 @@ define([
   "models/playlist-model"
 ],
 
-function(app, HomeView, SongsListView, PlaylistListView, PlaylistView, PlaylistDailyView, PlaylistDailyCollection, VideoDailyCollection, PlaylistModel) {
+function(app, HomeView, DeezerView, DeezerPlaylistView, LocalView, LocalPlaylistView, SongsListView, PlaylistListView, PlaylistView, PlaylistDailyView, PlaylistDailyCollection, VideoDailyCollection, PlaylistModel) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
       "": "index",
+      "deezer/:id": "deezerPlaylist",
+      "deezer": "deezer",
+      "local/:id": "localPlaylist",
+      "local": "local",
       "songs-list": "songsList",
       "playlist": "playlist",
       "playlist/local/:id": "playlistLocal",
@@ -28,6 +38,26 @@ function(app, HomeView, SongsListView, PlaylistListView, PlaylistView, PlaylistD
     index: function() {
       app.someModule.views.home = (app.someModule.views.home) ? app.someModule.views.home : new HomeView();
       app.mainRegion.show(app.someModule.views.home);
+    },
+
+    deezer: function(){
+      app.someModule.views.deezer = (app.someModule.views.deezer) ? app.someModule.views.deezer : new DeezerView();
+      app.mainRegion.show(app.someModule.views.deezer);
+    },
+
+    deezerPlaylist: function(id){
+      app.someModule.views.playlistDeezer = (app.someModule.views.playlistDeezer) ? app.someModule.views.playlistDeezer : new DeezerPlaylistView();
+      app.mainRegion.show(app.someModule.views.playlistDeezer);
+    },
+
+    local: function(){
+      app.someModule.views.local = (app.someModule.views.local) ? app.someModule.views.local : new LocalView();
+      app.mainRegion.show(app.someModule.views.local);
+    },
+
+    localPlaylist: function(id){
+      app.someModule.views.playlistLocal = (app.someModule.views.playlistLocal) ? app.someModule.views.playlistLocal : new LocalPlaylistView();
+      app.mainRegion.show(app.someModule.views.playlistLocal);
     },
 
     songsList: function() {

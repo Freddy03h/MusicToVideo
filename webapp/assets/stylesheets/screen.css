@@ -1,0 +1,162 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 16, ../sass/screen.scss */
+html {
+  font-family: 'Helvetica Neue' ,Helvetica , sans-serif;
+  background-color: #F4F4F4;
+}
+
+/* line 20, ../sass/screen.scss */
+a {
+  text-decoration: none;
+  color: #2b2b67;
+}
+
+/* line 22, ../sass/screen.scss */
+.bubble, #home li, #playlist h1, #playlist a, #deezer h1, #local h1, #deezer li, #local li, #deezer-playlist h1, #local-playlist h1, #deezer-playlist li, #local-playlist li {
+  margin: 10px;
+  height: 40px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* line 29, ../sass/screen.scss */
+.picto-disque {
+  background-image: url("../img/picto_disque.png");
+  background-size: 56px 56px;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  vertical-align: middle;
+}
+
+/* line 38, ../sass/screen.scss */
+.picto-cliplist {
+  background-image: url("../img/picto_cliplist.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 47, ../sass/screen.scss */
+.degradeOrange, #home li, #playlist h1, #deezer h1, #local h1, #deezer-playlist h1, #local-playlist h1 {
+  background: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #ffbf00), color-stop(100%, #ff4f00));
+  background: -webkit-linear-gradient(right, #ffbf00, #ff4f00);
+  background: -moz-linear-gradient(right, #ffbf00, #ff4f00);
+  background: -o-linear-gradient(right, #ffbf00, #ff4f00);
+  background: linear-gradient(right, #ffbf00, #ff4f00);
+  color: white;
+}
+
+/* line 52, ../sass/screen.scss */
+.degradeOrange2, #playlist a {
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffbc3e), color-stop(100%, #ff4c20));
+  background: -webkit-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: -moz-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: -o-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: linear-gradient(bottom, #ffbc3e, #ff4c20);
+  color: white;
+}
+
+/* line 58, ../sass/screen.scss */
+#home p {
+  color: #2b2b67;
+  font-size: 20px;
+}
+
+/* line 74, ../sass/screen.scss */
+#playlist .info-video {
+  color: #2b2b67;
+  display: inline-block;
+}
+/* line 77, ../sass/screen.scss */
+#playlist .info-video p {
+  display: inline-block;
+}
+/* line 81, ../sass/screen.scss */
+#playlist a {
+  display: block;
+}
+
+/* line 92, ../sass/screen.scss */
+#deezer li, #local li {
+  background-color: #FFFFFF;
+}
+
+/* line 102, ../sass/screen.scss */
+#deezer-playlist li, #local-playlist li {
+  background-color: #FFFFFF;
+}

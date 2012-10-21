@@ -1,0 +1,106 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+$bleu:#2B2B67;
+
+$orangeFonce:#FF4F00;
+$orangeClair:#FFBF00;
+
+$default-border-radius: 6px;
+
+html{
+	font-family: 'Helvetica Neue' ,Helvetica , sans-serif;
+	background-color:#F4F4F4;
+}
+a{text-decoration: none;color:$bleu;}
+
+.bubble{
+	margin:10px;
+	height:40px;
+	@include border-radius();
+	font-size:16px;
+}
+
+.picto-disque{
+	background-image: url("../img/picto_disque.png");
+    background-size: 56px 56px;
+    display: inline-block;
+    width:56px;
+    height:56px;
+    vertical-align: middle;
+}
+
+.picto-cliplist{
+	background-image: url("../img/picto_cliplist.png");
+    background-size: 35px 35px;
+    display: inline-block;
+    width:35px;
+    height:35px;
+    vertical-align: middle;
+}
+
+.degradeOrange{
+	@include background(linear-gradient(right, $orangeClair, $orangeFonce));
+	color:white;
+}
+
+.degradeOrange2{
+	@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
+	color:white;
+}
+
+#home{
+	p{
+		color:$bleu;
+		font-size:20px;
+		
+	}
+	li{
+		@extend .degradeOrange;
+		@extend .bubble;
+		
+	}
+}
+#playlist{
+	h1{
+		@extend .degradeOrange;
+		@extend .bubble;
+	}
+	.info-video{
+		color:$bleu;
+		display:inline-block;
+		p{
+			display:inline-block;
+		}
+	}
+	a{
+		display: block;
+		@extend .degradeOrange2;
+		@extend .bubble;
+	}
+}
+#deezer, #local{
+	h1{
+		@extend .degradeOrange;
+		@extend .bubble;
+	}
+	li{
+		@extend .bubble;
+		background-color:#FFFFFF;
+	}
+}
+#deezer-playlist, #local-playlist{
+	h1{
+		@extend .degradeOrange;
+		@extend .bubble;
+	}
+	li{
+		@extend .bubble;
+		background-color:#FFFFFF;
+	}
+}
