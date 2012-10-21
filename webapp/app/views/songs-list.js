@@ -17,7 +17,7 @@ function(app, template, SongModel, VideoCollection, PlaylistModel) {
       "submit #list-songs" : "transformToVideo"
     },
     initialize: function(){
-      app.someModule.models.playlistTmp = new PlaylistModel({ id: "Local-" + app.someModule.models.playLists.length });
+      app.someModule.models.playlistTmp = new PlaylistModel({ id: "Local-" + new Date().getTime() });
       app.someModule.models.playlistTmp.videos = new VideoCollection();
     },
     transformToVideo: function(e){
@@ -75,6 +75,8 @@ function(app, template, SongModel, VideoCollection, PlaylistModel) {
       });
       //console.log(JSON.stringify(multicall));
 
+
+
       app.someModule.models.playlistTmp.videos.fetch({
         data : JSON.stringify(multicall),
         type: 'POST',
@@ -83,6 +85,7 @@ function(app, template, SongModel, VideoCollection, PlaylistModel) {
           console.log(model);
           app.someModule.models.playLists.add(app.someModule.models.playlistTmp);
           app.someModule.models.playLists.saveLocal();
+          Backbone.history.navigate('playlist/local/'+app.someModule.models.playlistTmp.id, true);
         }
       });
 
@@ -90,7 +93,7 @@ function(app, template, SongModel, VideoCollection, PlaylistModel) {
 
       //app.someModule.models.playLists.saveLocal();
 
-      Backbone.history.navigate('playlist/local/'+app.someModule.models.playlistTmp.id, true);
+      
 
       //this.playlistToSearch.fetch({data: formData});
     }
