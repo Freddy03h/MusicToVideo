@@ -1,9 +1,9 @@
 {
   "name": "M2V",
   "description": "Music to Video : transformez vos playslists en cliplists",
-  "launch_path": "/MusicToVideo/webapp/",
+  "launch_path": "/MusicToVideo/webapp/index.html",
   "icons": {
-    "128": "/m2v_icon.png"
+    "128": "/MusicToVideo/webapp/m2v_icon.png"
   },
   "developer": {
     "name": "Freddy Harris",
