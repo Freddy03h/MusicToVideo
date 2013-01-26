@@ -1,0 +1,759 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Users/fharris/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 16, ../sass/screen.scss */
+html {
+  font-family: 'Helvetica Neue' ,Helvetica , sans-serif;
+  background-color: #F4F4F4;
+  -webkit-text-size-adjust: none;
+}
+
+/* line 21, ../sass/screen.scss */
+a {
+  text-decoration: none;
+  color: #2b2b67;
+}
+
+/* line 22, ../sass/screen.scss */
+#main > div * {
+  -webkit-margin-collapse: separate;
+}
+
+/* line 23, ../sass/screen.scss */
+span.title {
+  max-width: 250px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 32, ../sass/screen.scss */
+.cssanimations.csstransforms3d #app {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 43, ../sass/screen.scss */
+.cssanimations.csstransforms3d #main {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 30;
+}
+/* line 53, ../sass/screen.scss */
+.cssanimations.csstransforms3d #main > * {
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 0;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+/* line 67, ../sass/screen.scss */
+.cssanimations.csstransforms3d #main > * > * {
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 10px;
+  overflow-y: hidden;
+  position: absolute;
+  z-index: 0;
+  min-height: 101%;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 91, ../sass/screen.scss */
+.no-cssanimations, .no-cssanimations #app, .no-csstransforms3d, .no-csstransforms3d #app {
+  height: 100%;
+}
+/* line 92, ../sass/screen.scss */
+.no-cssanimations #main, .no-csstransforms3d #main {
+  position: relative;
+  padding-top: 50px;
+}
+
+/* line 102, ../sass/screen.scss */
+.overflowscrolling.iphone-safari #app {
+  bottom: -60px;
+}
+
+/***************/
+/* line 108, ../sass/screen.scss */
+#main .slideleft.in, #main .slideleft.out {
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+}
+
+/* line 113, ../sass/screen.scss */
+#main .slideleft.in {
+  -webkit-animation-name: slideLeftIn;
+  animation-name: slideLeftIn;
+}
+
+/* line 118, ../sass/screen.scss */
+#main .slideleft.out {
+  -webkit-animation-name: slideLeftOut;
+  animation-name: slideLeftOut;
+}
+
+@-webkit-keyframes slideLeftIn {
+  /* line 124, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+  }
+
+  /* line 127, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideLeftOut {
+  /* line 133, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* line 136, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideLeftIn {
+  /* line 142, ../sass/screen.scss */
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  /* line 145, ../sass/screen.scss */
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideLeftOut {
+  /* line 151, ../sass/screen.scss */
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* line 154, ../sass/screen.scss */
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Slide Right */
+/* line 161, ../sass/screen.scss */
+#main .slideright.in, #main .slideright.out {
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+}
+
+/* line 166, ../sass/screen.scss */
+#main .slideright.in {
+  -webkit-animation-name: slideRightIn;
+  animation-name: slideRightIn;
+}
+
+/* line 171, ../sass/screen.scss */
+#main .slideright.out {
+  -webkit-animation-name: slideRightOut;
+  animation-name: slideRightOut;
+}
+
+@-webkit-keyframes slideRightIn {
+  /* line 177, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+  }
+
+  /* line 180, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideRightOut {
+  /* line 186, ../sass/screen.scss */
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* line 189, ../sass/screen.scss */
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slideRightIn {
+  /* line 195, ../sass/screen.scss */
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  /* line 198, ../sass/screen.scss */
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideRightOut {
+  /* line 204, ../sass/screen.scss */
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* line 207, ../sass/screen.scss */
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+/* Disolve */
+/* line 213, ../sass/screen.scss */
+#main .dissolve.in, #main .dissolve.out {
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+}
+
+/* line 218, ../sass/screen.scss */
+#main .dissolve.in {
+  -webkit-animation-name: dissolveIn;
+  animation-name: dissolveIn;
+}
+
+/* line 223, ../sass/screen.scss */
+#main .dissolve.out {
+  -webkit-animation-name: dissolveOut;
+  animation-name: dissolveOut;
+}
+
+@-webkit-keyframes dissolveIn {
+  /* line 229, ../sass/screen.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 232, ../sass/screen.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes dissolveOut {
+  /* line 238, ../sass/screen.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 241, ../sass/screen.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dissolveIn {
+  /* line 247, ../sass/screen.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 250, ../sass/screen.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dissolveOut {
+  /* line 256, ../sass/screen.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 259, ../sass/screen.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* line 264, ../sass/screen.scss */
+#header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  z-index: 50;
+  background-color: #FFF;
+}
+/* line 273, ../sass/screen.scss */
+#header a {
+  vertical-align: middle;
+  display: block;
+  position: absolute;
+}
+/* line 277, ../sass/screen.scss */
+#header a.btn-back {
+  top: 6px;
+  left: 6px;
+}
+/* line 281, ../sass/screen.scss */
+#header a.logo {
+  margin: 0 auto;
+  position: static;
+}
+/* line 285, ../sass/screen.scss */
+#header a.btn-dailymotion-petit {
+  right: 6px;
+  top: 0;
+}
+
+/* line 292, ../sass/screen.scss */
+#main {
+  padding: 0 10px;
+}
+
+/* line 298, ../sass/screen.scss */
+.cssanimations.csstransforms3d #main > .current, .no-cssanimations #main > .current, .no-csstransforms3d #main > .current {
+  z-index: 40;
+}
+/* line 301, ../sass/screen.scss */
+.cssanimations.csstransforms3d #main > :not(.current), .no-cssanimations #main > :not(.current), .no-csstransforms3d #main > :not(.current) {
+  display: none;
+}
+
+/* line 306, ../sass/screen.scss */
+#main .in, #main .out {
+  -webkit-animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 250ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 315, ../sass/screen.scss */
+#main .in {
+  z-index: 50;
+}
+
+/* line 318, ../sass/screen.scss */
+#main .in:after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* line 325, ../sass/screen.scss */
+#main .out {
+  z-index: 0 !important;
+}
+
+/* line 330, ../sass/screen.scss */
+.picto-disque {
+  background-image: url("../img/picto_disque.png");
+  background-size: 56px 56px;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  vertical-align: middle;
+}
+
+/* line 339, ../sass/screen.scss */
+.picto-cliplist {
+  background-image: url("../img/picto_cliplist.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 348, ../sass/screen.scss */
+.picto-playlist {
+  background-image: url("../img/picto_playlist.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 357, ../sass/screen.scss */
+.mini-fleche {
+  background-image: url("../img/mini_fleche.png");
+  background-size: 14px 14px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+/* line 366, ../sass/screen.scss */
+.logo {
+  background-image: url("../img/logo.png");
+  background-size: 118px 56px;
+  display: inline-block;
+  width: 118px;
+  height: 56px;
+  vertical-align: middle;
+}
+
+/* line 375, ../sass/screen.scss */
+.btn-dailymotion-petit {
+  background-image: url("../img/btn_dailymotion_petit.png");
+  background-size: 51px 51px;
+  display: inline-block;
+  width: 51px;
+  height: 51px;
+  vertical-align: middle;
+}
+
+/* line 384, ../sass/screen.scss */
+.btn-back {
+  background-image: url("../img/btn_back.png");
+  background-size: 35px 35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+/* line 393, ../sass/screen.scss */
+.bubble, #home li, .playlist h1, .playlist-daily h1, .playlist a, .playlist-daily a, #playlist-list h1, #playlist-list h2, #playlist-list li, #deezer h1, #local h1, #deezer li, #local li, .deezer-playlist h1, #local-playlist h1, .deezer-playlist li, #local-playlist li, .deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit], .tab-bar a {
+  margin: 10px 0;
+  height: 40px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* line 400, ../sass/screen.scss */
+.degradeOrange, #home li, .playlist h1, .playlist-daily h1, #playlist-list h1, #deezer h1, #local h1, .deezer-playlist h1, #local-playlist h1, .deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit], .tab-bar a {
+  background-color: #FF892F;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* line 407, ../sass/screen.scss */
+.degradeOrange2, .playlist a, .playlist-daily a {
+  background-color: #FF812F;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* line 415, ../sass/screen.scss */
+#home p.start {
+  color: #2b2b67;
+  font-size: 20px;
+  margin: 16px 0 8px;
+}
+/* line 420, ../sass/screen.scss */
+#home p.end {
+  color: #2b2b67;
+  font-size: 20px;
+  margin: 8px 0 16px;
+}
+/* line 428, ../sass/screen.scss */
+#home li span.picto-disque {
+  position: relative;
+  top: -7px;
+  left: 7px;
+}
+/* line 433, ../sass/screen.scss */
+#home li span.title {
+  position: relative;
+  top: -5px;
+  left: 15px;
+}
+/* line 440, ../sass/screen.scss */
+#home #connect {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+
+/* line 450, ../sass/screen.scss */
+.playlist h1 .picto-cliplist, .playlist-daily h1 .picto-cliplist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 455, ../sass/screen.scss */
+.playlist h1 .title, .playlist-daily h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 461, ../sass/screen.scss */
+.playlist iframe, .playlist-daily iframe {
+  vertical-align: middle;
+}
+/* line 464, ../sass/screen.scss */
+.playlist .info-video, .playlist-daily .info-video {
+  color: #2b2b67;
+  display: inline-block;
+  height: 30px;
+}
+/* line 468, ../sass/screen.scss */
+.playlist .info-video p, .playlist-daily .info-video p {
+  margin-top: 6px;
+  display: inline-block;
+}
+/* line 473, ../sass/screen.scss */
+.playlist a, .playlist-daily a {
+  display: block;
+}
+/* line 479, ../sass/screen.scss */
+.playlist #connect .title, .playlist #social .title, .playlist-daily #connect .title, .playlist-daily #social .title {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 12px;
+}
+
+/* line 491, ../sass/screen.scss */
+#playlist-list h1 .picto-cliplist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 496, ../sass/screen.scss */
+#playlist-list h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 502, ../sass/screen.scss */
+#playlist-list h2 {
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #000033), color-stop(100%, #0000b8));
+  background: -webkit-linear-gradient(left, #000033, #0000b8);
+  background: -moz-linear-gradient(left, #000033, #0000b8);
+  background: -o-linear-gradient(left, #000033, #0000b8);
+  background: linear-gradient(left, #000033, #0000b8);
+  color: white;
+  text-transform: uppercase;
+}
+/* line 507, ../sass/screen.scss */
+#playlist-list h2 .title {
+  position: relative;
+  top: 11px;
+  left: 8px;
+}
+/* line 513, ../sass/screen.scss */
+#playlist-list li {
+  background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 518, ../sass/screen.scss */
+#playlist-list li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 523, ../sass/screen.scss */
+#playlist-list li .mini-fleche {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+/* line 534, ../sass/screen.scss */
+#deezer h1 .picto-playlist, #local h1 .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 539, ../sass/screen.scss */
+#deezer h1 .title, #local h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 545, ../sass/screen.scss */
+#deezer li, #local li {
+  background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 550, ../sass/screen.scss */
+#deezer li .title, #local li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 555, ../sass/screen.scss */
+#deezer li .mini-fleche, #local li .mini-fleche {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+/* line 566, ../sass/screen.scss */
+.deezer-playlist h1 .picto-playlist, #local-playlist h1 .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 571, ../sass/screen.scss */
+.deezer-playlist h1 .title, #local-playlist h1 .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}
+/* line 577, ../sass/screen.scss */
+.deezer-playlist li, #local-playlist li {
+  background-color: #FFFFFF;
+  color: #2b2b67;
+  position: relative;
+}
+/* line 582, ../sass/screen.scss */
+.deezer-playlist li .title, #local-playlist li .title {
+  position: relative;
+  left: 10px;
+  top: 11px;
+}
+/* line 587, ../sass/screen.scss */
+.deezer-playlist li input[type=checkbox], #local-playlist li input[type=checkbox] {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+/* line 593, ../sass/screen.scss */
+.deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit] {
+  -webkit-appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 603, ../sass/screen.scss */
+.deezer-playlist #deezer-tracks, #local-playlist #deezer-tracks {
+  border-bottom: dashed #C3C3C3 1px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 610, ../sass/screen.scss */
+.tab-bar {
+  margin: 10px 0;
+}
+/* line 612, ../sass/screen.scss */
+.tab-bar a {
+  display: inline-block;
+  width: 45%;
+  margin: 0 2%;
+}
+/* line 618, ../sass/screen.scss */
+.tab-bar a .picto-cliplist, .tab-bar a .picto-playlist {
+  position: relative;
+  top: 2px;
+  left: 4px;
+}
+/* line 623, ../sass/screen.scss */
+.tab-bar a .title {
+  position: relative;
+  top: 3px;
+  left: 9px;
+}

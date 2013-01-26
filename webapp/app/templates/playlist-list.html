@@ -1,0 +1,32 @@
+<div>
+	<h1><span class="picto-cliplist"></span><span class="title">Cliplist</span></h1>
+
+	<h2><span class="title">DailyMotion</span></h2>
+
+	<% if(playlistDaily){ %>
+		<ul>
+		<% _.each(playlistDaily, function(playlist){ %>
+			<a href="playlist/daily/<%= playlist.id %>" data-animation="slideleft"><li><span class="title"><%= playlist.name %></span><span class="mini-fleche"></span></li></a>
+		<% }); %>
+		</ul>
+	<% }else{ %>
+		<p>No dailymotion playlist</p>
+	<% } %>
+
+	<h2><span class="title">Local</span></h2>
+
+	<% if(playlistLocal){ %>
+		<ul>
+		<% _.each(playlistLocal, function(playlist){ %>
+			<a href="playlist/local/<%= playlist.id %>" data-animation="slideleft"><li><span class="title"><%= playlist.id %></span><span class="mini-fleche"></span></li></a>
+		<% }); %>
+		</ul>
+	<% }else{ %>
+		<p>No local playlist</p>
+	<% } %>
+
+	<div class="tab-bar">
+		<a href=""><span class="picto-playlist"></span><span class="title">PLAYLISTS</span></a>
+		<a href="playlist"><span class="picto-cliplist"></span><span class="title">CLIPLISTS</span></a>
+	</div>
+</div>
