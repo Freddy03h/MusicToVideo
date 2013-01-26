@@ -106,8 +106,8 @@ span.title{
 /***************/
 
 #main .slideleft.in, #main .slideleft.out{
-	-webkit-animation-duration: 1000ms;
-	animation-duration: 1000ms;
+	-webkit-animation-duration: 400ms;
+	animation-duration: 400ms;
 }
 
 #main .slideleft.in {
@@ -159,8 +159,8 @@ span.title{
 /* Slide Right */
 
 #main .slideright.in, #main .slideright.out{
-	-webkit-animation-duration: 1000ms;
-	animation-duration: 1000ms;
+	-webkit-animation-duration: 400ms;
+	animation-duration: 400ms;
 }
 
 #main .slideright.in {
@@ -211,8 +211,8 @@ span.title{
 
 /* Disolve */
 #main .dissolve.in, #main .dissolve.out{
-	-webkit-animation-duration: 1000ms;
-	animation-duration: 1000ms;
+	-webkit-animation-duration: 400ms;
+	animation-duration: 400ms;
 }
 
 #main .dissolve.in {
@@ -269,7 +269,7 @@ span.title{
 	height: 50px;
 	z-index: 50;
 	background-color: #FFF;
-	//@include single-box-shadow(rgba(0,0,0,0.4), 0, 0, 15px, false, false);
+	@include single-box-shadow(rgba(0,0,0,0.4), 0, 0, 15px, false, false);
 	a{
 		vertical-align:middle;
 		display:block;
@@ -304,10 +304,10 @@ span.title{
 }
 
 #main .in, #main .out {
-	-webkit-animation-duration: 250ms;
+	-webkit-animation-duration: 400ms;
 	-webkit-animation-fill-mode: both;
 	-webkit-animation-timing-function: ease-in-out;
-	animation-duration: 250ms;
+	animation-duration: 400ms;
 	animation-fill-mode: both;
 	animation-timing-function: ease-in-out;
 }
@@ -399,14 +399,14 @@ span.title{
 
 .degradeOrange{
 	background-color: #FF892F;
-	//@include background(linear-gradient(right, $orangeClair, $orangeFonce));
+	@include background(linear-gradient(right, $orangeClair, $orangeFonce));
 	color:white;
 	text-transform:uppercase;
 }
 
 .degradeOrange2{
 	background-color: #FF812F;
-	//@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
+	@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
 	color:white;
 	text-transform:uppercase;
 }
