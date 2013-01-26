@@ -171,8 +171,8 @@ span.title {
 /***************/
 /* line 108, ../sass/screen.scss */
 #main .slideleft.in, #main .slideleft.out {
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
+  -webkit-animation-duration: 400ms;
+  animation-duration: 400ms;
 }
 
 /* line 113, ../sass/screen.scss */
@@ -238,8 +238,8 @@ span.title {
 /* Slide Right */
 /* line 161, ../sass/screen.scss */
 #main .slideright.in, #main .slideright.out {
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
+  -webkit-animation-duration: 400ms;
+  animation-duration: 400ms;
 }
 
 /* line 166, ../sass/screen.scss */
@@ -305,8 +305,8 @@ span.title {
 /* Disolve */
 /* line 213, ../sass/screen.scss */
 #main .dissolve.in, #main .dissolve.out {
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
+  -webkit-animation-duration: 400ms;
+  animation-duration: 400ms;
 }
 
 /* line 218, ../sass/screen.scss */
@@ -378,6 +378,9 @@ span.title {
   height: 50px;
   z-index: 50;
   background-color: #FFF;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 /* line 273, ../sass/screen.scss */
 #header a {
@@ -417,10 +420,10 @@ span.title {
 
 /* line 306, ../sass/screen.scss */
 #main .in, #main .out {
-  -webkit-animation-duration: 250ms;
+  -webkit-animation-duration: 400ms;
   -webkit-animation-fill-mode: both;
   -webkit-animation-timing-function: ease-in-out;
-  animation-duration: 250ms;
+  animation-duration: 400ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
 }
@@ -528,6 +531,11 @@ span.title {
 /* line 400, ../sass/screen.scss */
 .degradeOrange, #home li, .playlist h1, .playlist-daily h1, #playlist-list h1, #deezer h1, #local h1, .deezer-playlist h1, #local-playlist h1, .deezer-playlist #list-songs input[type=submit], #local-playlist #list-songs input[type=submit], .tab-bar a {
   background-color: #FF892F;
+  background: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #ffbf00), color-stop(100%, #ff4f00));
+  background: -webkit-linear-gradient(right, #ffbf00, #ff4f00);
+  background: -moz-linear-gradient(right, #ffbf00, #ff4f00);
+  background: -o-linear-gradient(right, #ffbf00, #ff4f00);
+  background: linear-gradient(right, #ffbf00, #ff4f00);
   color: white;
   text-transform: uppercase;
 }
@@ -535,6 +543,11 @@ span.title {
 /* line 407, ../sass/screen.scss */
 .degradeOrange2, .playlist a, .playlist-daily a {
   background-color: #FF812F;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffbc3e), color-stop(100%, #ff4c20));
+  background: -webkit-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: -moz-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: -o-linear-gradient(bottom, #ffbc3e, #ff4c20);
+  background: linear-gradient(bottom, #ffbc3e, #ff4c20);
   color: white;
   text-transform: uppercase;
 }
