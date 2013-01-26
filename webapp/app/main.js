@@ -12,20 +12,22 @@ require([
 
 function(app, Router, HeaderView, PlaylistCollection) {
 
-  DM.getLoginStatus(function(response)
-  {
-      if (response.session)
-      {
-        console.log(response.session);
-        app.someModule.user = response.session;
-        // logged in and connected user, someone you know
-      }
-      else
-      {
-          console.log('not getLoginStatus');
-          // no user session available, someone you dont know
-      }
-  });
+  if(typeof DM != 'undefined'){
+    DM.getLoginStatus(function(response)
+    {
+        if (response.session)
+        {
+          console.log(response.session);
+          app.someModule.user = response.session;
+          // logged in and connected user, someone you know
+        }
+        else
+        {
+            console.log('not getLoginStatus');
+            // no user session available, someone you dont know
+        }
+    });
+  }
 
   app.someModule.models.playLists = new PlaylistCollection();
 
@@ -38,7 +40,12 @@ function(app, Router, HeaderView, PlaylistCollection) {
 
   // Trigger the initial route and enable HTML5 History API support, set the
   // root folder to '/' by default.  Change in app.js.
-  Backbone.history.start({ pushState: true, root: app.root });
+  Backbone.history.start({/* pushState: true,*/ root: app.root });
+
+  /*if(typeof MediaDB == 'undefined')
+    alert('Pas de MediaDB');
+  else
+    alert('MediaDB présent !');*/
 
   // All navigation that is relative should be passed through the navigate
   // method, to be processed by the router. If the link has a `data-bypass`

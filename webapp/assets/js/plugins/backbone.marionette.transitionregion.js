@@ -10,7 +10,10 @@ Backbone.Marionette.TransitionRegion = Backbone.Marionette.Region.extend({
   //has3d: (Modernizr.overflowscrolling && (typeof window.WebKitAnimationEvent != 'undefined') && ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix())),
   initialize: function(){
     this.animation = 'dissolve';
-    this.has3d = (Modernizr.overflowscrolling && (typeof window.WebKitAnimationEvent != 'undefined') && ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()));
+    //cssanimations csstransforms3d
+    this.has3d = (Modernizr.cssanimations && Modernizr.csstransforms3d);
+    
+    //this.has3d = (Modernizr.overflowscrolling && (typeof window.WebKitAnimationEvent != 'undefined') && ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()));
   },
 
   open: function(view){
@@ -80,20 +83,20 @@ Backbone.Marionette.TransitionRegion = Backbone.Marionette.Region.extend({
         var finalAnimationName = animation.name;
 
         // Bind internal "cleanup" callback
-        fromPage.bind('webkitAnimationEnd', navigationEndHandler);
+        fromPage.bind('webkitAnimationEnd animationend', navigationEndHandler);
 
         // Trigger animations
-        $('body').addClass('animating');
+        //$('body').addClass('animating');
 
         //var lastScroll = window.pageYOffset;
-        var main = document.getElementById('main');
-        var lastScroll = main.scrollTop;
+        //var main = document.getElementById('main');
+        //var lastScroll = main.scrollTop;
         //var lastScroll = 0;
 
-        main.style.visibility = 'hidden';
+        /*main.style.visibility = 'hidden';
         main.scrollTop = 0;
         fromPage.css('top', -lastScroll);
-        main.style.visibility = 'visible';
+        main.style.visibility = 'visible';*/
         
 
         //toPage.css('top', lastScroll - (/*toPage.data('lastScroll') ||*/ 0));
@@ -111,19 +114,20 @@ Backbone.Marionette.TransitionRegion = Backbone.Marionette.Region.extend({
 
     // Private navigationEnd callback
     function navigationEndHandler(event) {
+
         var bufferTime = 100;
 
         if (self.has3d && finalAnimationName) {
-            fromPage.unbind('webkitAnimationEnd', navigationEndHandler);
+            fromPage.unbind('webkitAnimationEnd animationend', navigationEndHandler);
             fromPage.removeClass('current ' + finalAnimationName + ' out');
             toPage.removeClass(finalAnimationName);
-            $('body').removeClass('animating');
+            //$('body').removeClass('animating');
 
             //var main = document.getElementById('main');
             //var lastScroll = /*toPage.data('lastScroll') ||*/ 0;
 
             //toPage.css('top', -lastScroll);
-            fromPage.css('top', 0);
+            //fromPage.css('top', 0);
             window.scrollTo(0, 0);
             /*setTimeout(function(){
                 

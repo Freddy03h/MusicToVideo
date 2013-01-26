@@ -15,11 +15,13 @@
   <script src="http://api.dmcdn.net/all.js"></script>
   <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
   <script>
+  if(typeof DM != 'undefined'){
     DM.init({
       apiKey: 'cc344d1377bbd288a641',
       status: true, // check login status
       cookie: true // enable cookies to allow the server to access the session
     });
+  }
   </script>
 
 
@@ -32,10 +34,12 @@
 <body>
   <div id="dz-root"></div>
   <script>
+  if(typeof DZ != 'undefined'){
     DZ.init({
      appId : '107661',
      channelUrl : 'http://musictovideo.com/'
     });
+  }
   </script>
   <!-- Header container. -->
   <div id="app">

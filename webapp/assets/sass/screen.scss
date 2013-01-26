@@ -28,7 +28,7 @@ span.title{
 	overflow: hidden;
 }
 
-.overflowscrolling  {
+.cssanimations.csstransforms3d  {
 	#app{
 		position: absolute;
 		top: 0;
@@ -54,14 +54,28 @@ span.title{
 		display: block;
 		left: 0;
 		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		
+		overflow-y: auto;
+		position: absolute;
+		z-index: 0;
+		-webkit-perspective: 1000;
+		-webkit-backface-visibility: hidden;
+	}
+	#main > * > * {
+		display: block;
+		left: 0;
+		top: 0;
 		width: 100%;
 		padding:0 10px;
+
 		overflow-y: hidden;
 		position: absolute;
 		z-index: 0;
 		min-height: 101%;
-		-webkit-perspective: 1000;
-		-webkit-backface-visibility: hidden;
+
 		display: -webkit-box;
 		display: box;
 		-webkit-box-orient: vertical;
@@ -70,9 +84,10 @@ span.title{
 		box-flex: 1;
 		@include box-sizing(border-box);
 	}
+
 }
 
-.no-overflowscrolling  {
+.no-cssanimations, .no-csstransforms3d   {
 	&, & #app{height:100%;}
 	#main{
 		position: relative;
@@ -89,17 +104,20 @@ span.title{
 }
 
 /***************/
-	
+
 #main .slideleft.in, #main .slideleft.out{
-	-webkit-animation-duration: 250ms;
+	-webkit-animation-duration: 1000ms;
+	animation-duration: 1000ms;
 }
 
 #main .slideleft.in {
     -webkit-animation-name: slideLeftIn;
+    animation-name: slideLeftIn;
 }
 
 #main .slideleft.out {
     -webkit-animation-name: slideLeftOut;
+    animation-name: slideLeftOut;
 }
 
 @-webkit-keyframes slideLeftIn {
@@ -120,18 +138,39 @@ span.title{
     }
 }
 
+@keyframes slideLeftIn {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    } 
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideLeftOut {
+    0% {
+    	transform: translate3d(0, 0, 0);
+    } 
+    100% {
+    	transform: translate3d(-100%, 0, 0);
+    }
+}
+
 /* Slide Right */
 
 #main .slideright.in, #main .slideright.out{
-	-webkit-animation-duration: 250ms;
+	-webkit-animation-duration: 1000ms;
+	animation-duration: 1000ms;
 }
 
 #main .slideright.in {
     -webkit-animation-name: slideRightIn;
+    animation-name: slideRightIn;
 }
 
 #main .slideright.out {
     -webkit-animation-name: slideRightOut;
+    animation-name: slideRightOut;
 }
 
 @-webkit-keyframes slideRightIn {
@@ -152,17 +191,38 @@ span.title{
     }
 }
 
+@keyframes slideRightIn {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    } 
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideRightOut {
+    0% {
+        transform: translate3d(0, 0, 0);
+    } 
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
 /* Disolve */
 #main .dissolve.in, #main .dissolve.out{
-	-webkit-animation-duration: 100ms;
+	-webkit-animation-duration: 1000ms;
+	animation-duration: 1000ms;
 }
 
 #main .dissolve.in {
     -webkit-animation-name: dissolveIn;
+    animation-name: dissolveIn;
 }
 
 #main .dissolve.out {
     -webkit-animation-name: dissolveOut;
+    animation-name: dissolveOut;
 }
 
 @-webkit-keyframes dissolveIn {
@@ -183,6 +243,24 @@ span.title{
     }
 }
 
+@keyframes dissolveIn {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dissolveOut {
+    0% {
+        opacity: 1;
+    } 
+    100% {
+        opacity: 0;
+    }
+}
+
 #header{
 	position: absolute;
 	top: 0;
@@ -191,7 +269,7 @@ span.title{
 	height: 50px;
 	z-index: 50;
 	background-color: #FFF;
-	@include single-box-shadow(rgba(0,0,0,0.4), 0, 0, 15px, false, false);
+	//@include single-box-shadow(rgba(0,0,0,0.4), 0, 0, 15px, false, false);
 	a{
 		vertical-align:middle;
 		display:block;
@@ -215,18 +293,23 @@ span.title{
 	padding:0 10px;
 }
 
-#main > .current {
-	z-index: 40;
-}
 
-#main > :not(.current) {
-	display: none;
+.cssanimations.csstransforms3d, .no-cssanimations, .no-csstransforms3d  {
+	#main > .current {
+		z-index: 40;
+	}
+	#main > :not(.current) {
+		display: none;
+	}
 }
 
 #main .in, #main .out {
 	-webkit-animation-duration: 250ms;
 	-webkit-animation-fill-mode: both;
 	-webkit-animation-timing-function: ease-in-out;
+	animation-duration: 250ms;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
 }
 
 #main .in {
@@ -315,13 +398,15 @@ span.title{
 }
 
 .degradeOrange{
-	@include background(linear-gradient(right, $orangeClair, $orangeFonce));
+	background-color: #FF892F;
+	//@include background(linear-gradient(right, $orangeClair, $orangeFonce));
 	color:white;
 	text-transform:uppercase;
 }
 
 .degradeOrange2{
-	@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
+	background-color: #FF812F;
+	//@include background(linear-gradient(bottom, #FFBC3E, #FF4C20));
 	color:white;
 	text-transform:uppercase;
 }
