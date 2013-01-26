@@ -1,0 +1,13 @@
+{
+  "name": "Music to Video",
+  "description": "Transformez vos playslists en cliplists",
+  "launch_path": "/",
+  "icons": {
+    "128": "/m2v_icon.png"
+  },
+  "developer": {
+    "name": "Freddy Harris",
+    "url": "http://www.harris-freddy.com"
+  },
+  "default_locale": "en"
+}
